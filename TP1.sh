@@ -59,14 +59,6 @@ kubectl create deployment nginx --image=123456789.dkr.ecr.us-east-1.amazonaws.co
 kubectl create deployment nginx --image=registry.example.com:5000/nginx:v1
 
 
-# Obtenir plus d'informations sur le pod
-kubectl get pods -o wide
-
-# Décrire le pod (remplacer <pod-name> par le nom réel)
-kubectl describe pod <pod-name>
-
-# Voir les logs du pod
-kubectl logs <pod-name>
-
+#
 
 
