@@ -76,3 +76,5 @@ git add .
 git status           #  confirmer que les fichiers sont bien en vert (staged)
 git commit -m "Description du changement"
 git push
+
+k

@@ -158,6 +158,6 @@ sudo nmcli connection down "Bbox-B7025250" && sudo nmcli connection up "Bbox-B70
 
 
 
-
+k
 
 
