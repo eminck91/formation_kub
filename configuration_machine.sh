@@ -1,3 +1,33 @@
+Vous (kubectl)
+    │
+    ▼
+┌───────────────────────────────────────────┐
+│      Cluster Kubernetes                   │
+│                                          │
+│  API Server → etcd                       │
+│       ↓                                  │
+│  Deployment Controller                   │
+│       ↓                                  │
+│  ReplicaSet Controller                   │
+│       ↓                                  │
+│  Scheduler                               │
+│       ↓                                  │
+│  ┌────────────────────────┐             │
+│  │  Nœud (minikube)       │             │
+│  │                        │             │
+│  │  Kubelet               │             │
+│  │    ↓                   │             │
+│  │  Container Runtime     │             │
+│  └────────┬───────────────┘             │
+│           │                              │
+└───────────┼──────────────────────────────┘
+            │ Pull image
+            ▼
+    ┌─────────────────┐
+    │   Docker Hub    │  registry-1.docker.io
+    │  nginx:latest   │  (image officielle)
+    └─────────────────┘
+
 1. Mise à jour du système AlmaLinux
 
 sudo dnf update -y
@@ -83,11 +113,27 @@ kubectl get nodes
 sudo dnf install -y bash-completion
 
 
+echo 'export PROMPT_DIRTRIM=2' >> ~/.bashrc
+# Limite l'affichage du chemin dans le prompt aux 2 derniers dossiers,
+# remplace le reste par "..."
+
+
+source ~/.bashrc
+# Recharge la config bash sans redémarrer le terminal
 
 
 
+# k9s - Terminal UI pour Kubernetes
+curl -sS https://webinstall.dev/k9s | bash
+source ~/.bashrc
 
+# Helm - Gestionnaire de packages Kubernetes
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
+# kubectx/kubens - Changer de contexte facilement
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 
 
 
@@ -115,38 +161,3 @@ sudo nmcli connection down "Bbox-B7025250" && sudo nmcli connection up "Bbox-B70
 
 
 
-sudo dnf install -y git
-git --version
-
-git config --global user.name "eminck91"
-git config --global user.email "emin_caluk_91@hotmail.fr"
-
-
-https://github.com/eminck91/my-gitops-repo/tree/Project_kub/projet_kub
-
-
-# Générer une clé SSH
-ssh-keygen -t ed25519 -C "emin_caluk_91@hotmail.fr"
-# Appuie sur Entrée pour accepter l'emplacement par défaut, puis choisis une passphrase (ou vide)
-
-# Afficher la clé publique à copier
-cat ~/.ssh/id_ed25519.pub
-
-
-The key fingerprint is:
-SHA256:eMnH1RWQhMsDaLGGPleSkATw11QdoKn3VFbYwJHyiSg emin_caluk_91@hotmail.fr
-The key's randomart image is:
-+--[ED25519 256]--+
-| ...oo.o+o++X+o.o|
-|  .  .=o=o *.+ . |
-|   . o.O..*o+ .  |
-|    oEo+o+oB     |
-|     +ooS.o .    |
-|      +.o.       |
-|         .       |
-|                 |
-|                 |
-+----[SHA256]-----+
-
-
-(/home/kubstudent/.ssh/id_ed25519): keygit

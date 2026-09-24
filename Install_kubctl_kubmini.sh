@@ -71,9 +71,16 @@ kubectl get nodes
 
 
 # Ajouter à ~/.bashrc
+
+
+
+
 echo 'source <(kubectl completion bash)' >> ~/.bashrc
 echo 'alias k=kubectl' >> ~/.bashrc
 echo 'complete -o default -F __start_kubectl k' >> ~/.bashrc
+
+
+
 
 # Recharger
 source ~/.bashrc

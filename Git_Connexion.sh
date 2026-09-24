@@ -51,10 +51,28 @@ git clone git@github.com:eminck91/formation_kub.git
 # Ou si tu pars d'un dossier local existant
 cd ton-projet
 git init
-git remote add origin git@github.com:ton-utilisateur/ton-repo.git
+git remote add origin git@github.com:eminck91/formation_kub.git
 git add .
 git commit -m "Premier commit"
 git push -u origin main
 
 
 https://github.com/eminck91/formation_kub
+
+
+
+
+#. Premier push vers GitHub
+cd ton-repo   # dossier où sont tes fichiers
+git status
+git add .
+git commit -m "Premiers fichiers du projet"
+git push -u origin main
+
+
+#10. Cycle de travail au quotidien (à répéter à chaque modification)
+git status          #  voir ce qui a changé
+git add .
+git status           #  confirmer que les fichiers sont bien en vert (staged)
+git commit -m "Description du changement"
+git push
